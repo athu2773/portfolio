@@ -7,6 +7,19 @@ import ProfileImage from "../image/pp-199200.png";
 import ResumePDF from "../assets/AtharvaSawant.pdf";
 
 const HeroSection = () => {
+  const handleResumeClick = () => {
+    // Open in new tab
+    window.open(ResumePDF, "_blank", "noopener,noreferrer");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = ResumePDF;
+    link.setAttribute("download", "Atharva_Sawant_Resume.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-12 py-16 bg-[#101820] text-white overflow-hidden">
       {/* Background Video */}
@@ -86,18 +99,24 @@ const HeroSection = () => {
             <a
               href="https://github.com/athu2773"
               className="hover:text-[#A7BEAE] transition-transform hover:scale-110"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub size={24} />
             </a>
             <a
               href="https://www.linkedin.com/in/atharva-sawant-35626a209/"
               className="hover:text-[#A7BEAE] transition-transform hover:scale-110"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaLinkedin size={24} />
             </a>
             <a
               href="https://x.com/ATHARVASAW2773"
               className="hover:text-[#A7BEAE] transition-transform hover:scale-110"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaTwitter size={24} />
             </a>
@@ -110,15 +129,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.3 }}
             className="flex flex-wrap gap-4 justify-center lg:justify-start"
           >
-            <Motion.a
+            <Motion.button
               whileHover={{ scale: 1.05 }}
-              href={ResumePDF}
-              download="Atharva_Sawant_Resume.pdf"
+              onClick={handleResumeClick}
               className="flex items-center gap-2 px-5 py-3 bg-[#FEE715] hover:bg-[#A7BEAE] text-[#101820] font-medium rounded-md shadow transition-all"
             >
               <Download size={18} />
               Download Resume
-            </Motion.a>
+            </Motion.button>
 
             <Motion.a
               whileHover={{ scale: 1.05 }}
