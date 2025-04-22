@@ -21,7 +21,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-12 py-16 bg-[#101820] text-white overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-12 py-16 bg-[#101820] text-white overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
