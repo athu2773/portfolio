@@ -26,6 +26,23 @@ const Navbar = () => {
   ];
   const resumeLink = resumeAsset;
 
+  const handleResumeClick = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    // open new tab
+    window.open(resumeLink, '_blank', 'noopener,noreferrer');
+
+    // also trigger download (for browsers that support it)
+    const anchor = document.createElement('a');
+    anchor.href = resumeLink;
+    anchor.download = 'AtharvaSawant.pdf';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -52,9 +69,7 @@ const Navbar = () => {
             ))}
             <a
               href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              download
+              onClick={handleResumeClick}
               className="text-[#101820] font-medium bg-[#FEE715] px-3 py-1 rounded-md hover:bg-[#A7BEAE] transition-colors duration-200"
             >
               Resume
@@ -87,10 +102,10 @@ const Navbar = () => {
             ))}
             <a
               href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(event) => {
+                setIsMenuOpen(false);
+                handleResumeClick(event);
+              }}
               className="block text-[#101820] font-medium bg-[#FEE715] px-3 py-2 rounded-md text-center hover:bg-[#A7BEAE]"
             >
               Resume

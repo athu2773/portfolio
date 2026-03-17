@@ -27,9 +27,6 @@ const ExperienceSection = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="mb-16 text-center">
                     <h2 className="text-4xl sm:text-5xl font-bold text-[#FEE715] mb-2">Experience</h2>
-                    <p className="text-white/80 max-w-2xl mx-auto">
-                        A snapshot of my professional growth, hands-on skills, and achievements in product-focused teams.
-                    </p>
                 </div>
 
                 <div className="flex flex-col items-center gap-8">

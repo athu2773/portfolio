@@ -7,14 +7,14 @@ const educationData = [
     degree: 'MERN Stack Developer',
     college: 'Masai School',
     location: 'Online',
-    duration: 'Present',
+    duration: '2024 - 2025',
     description: 'Completed an intensive, project-based full-stack development program focusing on the MERN stack. Gained hands-on experience in building scalable web applications and strengthening problem-solving skills through real-world challenges.',
   },
   {
     degree: 'Master of Computer Application',
     college: 'K.J.Somaiya Institute Of Management',
     location: 'Mumbai, India',
-    duration: '2023 - Present',
+    duration: '2023 - 2025',
     description: 'Pursuing MCA with a specialization in AI/ML, diving deep into neural networks, data science, and intelligent systems. Currently working on a thesis exploring the integration of neural networks in modern web applications.',
   },
   {
@@ -42,64 +42,35 @@ const educationData = [
 const EducationSection = () => {
   return (
     <section id="education" className="bg-[#101820] text-white py-20 px-4 sm:px-6 md:px-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Heading */}
+      <div className="max-w-6xl mx-auto">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-[#FEE715] mb-2">
-            Education
-          </h2>
-          <span className="block h-1 w-10 bg-[#FEE715] mx-auto rounded" />
+          <h2 className="text-4xl md:text-5xl font-bold text-[#FEE715] mb-4">Education</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">
+            Academic milestones and certifications that showcase growth in full-stack development, systems thinking, and engineering best practices.
+          </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative flex flex-col items-center gap-12">
-          {/* Line */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-[#FEE715]/30 z-0" />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {educationData.map((item, index) => (
-            <Motion.div
+            <Motion.article
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative w-full sm:w-[90%] md:w-3/4 lg:w-2/3"
+              whileHover={{ scale: 1.03, boxShadow: '0 25px 45px rgba(254,231,21,0.25)' }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative rounded-2xl border border-[#FEE715]/30 bg-[#101820] p-6 backdrop-blur-xl transition-all duration-300"
             >
-              {/* Dot */}
-              <span className="absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-[#101820] border-4 border-[#FEE715] rounded-full z-10" />
-
-              {/* Card */}
-              <div className="relative bg-white/5 border border-white/10 backdrop-blur-lg rounded-xl p-6 mt-4 
-                hover:bg-[#A7BEAE]/10 transition duration-300 ease-in-out 
-                hover:shadow-[0_0_15px_#FEE715]"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-[#FEE715]/10 text-[#FEE715] rounded-md">
-                    <GraduationCap size={28} />
-                  </div>
-                  <h3 className="text-2xl font-semibold">{item.degree}</h3>
-                </div>
-
-                <div className="ml-2 space-y-2 text-base text-white/85 mb-3">
-                  <div className="flex items-center gap-2">
-                    <Building size={18} />
-                    <span>{item.college}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin size={18} />
-                    <span>{item.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar size={18} />
-                    <span>{item.duration}</span>
-                  </div>
-                </div>
-
-                <p className="text-white/80 text-base leading-relaxed">
-                  {item.description}
-                </p>
+              <div className="absolute -top-4 left-4 h-10 w-10 rounded-full bg-[#FEE715] flex items-center justify-center shadow-lg">
+                <GraduationCap size={20} className="text-[#101820]" />
               </div>
-            </Motion.div>
+
+              <div className="ml-12">
+                <h3 className="text-2xl font-bold text-[#FEE715] mb-2">{item.degree}</h3>
+                <p className="text-white/90 font-semibold">{item.college}</p>
+                <p className="text-sm text-white/70 mb-4">{item.location} • {item.duration}</p>
+                <p className="text-white/80 leading-relaxed">{item.description}</p>
+              </div>
+            </Motion.article>
           ))}
         </div>
       </div>
