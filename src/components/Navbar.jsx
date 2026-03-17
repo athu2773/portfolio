@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import resumeAsset from '../assets/AtharvaSawant.pdf';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,13 +18,13 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#hero' },
-    { name: 'Education', href: '#education' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
     { name: 'GitHub', href: '#github' },
     { name: 'Contact', href: '#contact' },
   ];
+  const resumeLink = resumeAsset;
 
   return (
     <nav
@@ -39,7 +40,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -49,6 +50,15 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="text-[#101820] font-medium bg-[#FEE715] px-3 py-1 rounded-md hover:bg-[#A7BEAE] transition-colors duration-200"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Mobile Toggle */}
@@ -75,6 +85,16 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-[#101820] font-medium bg-[#FEE715] px-3 py-2 rounded-md text-center hover:bg-[#A7BEAE]"
+            >
+              Resume
+            </a>
           </div>
         )}
       </div>

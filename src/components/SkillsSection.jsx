@@ -1,5 +1,6 @@
 import React from 'react';
 import 'devicon/devicon.min.css';
+import { Award, Clock, Wrench, Users, MessageCircle, Zap } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -43,6 +44,17 @@ const skillCategories = [
       { name: 'Postman', iconClass: 'devicon-postman-plain colored' }, // Might be a placeholder
     ],
   },
+  {
+    name: 'Soft Skills',
+    skills: [
+      { name: 'Attention to Detail', icon: Award },
+      { name: 'Time Management', icon: Clock },
+      { name: 'Problem Solving', icon: Wrench },
+      { name: 'Effective Communication', icon: MessageCircle },
+      { name: 'Adaptability', icon: Zap },
+      { name: 'Teamwork', icon: Users },
+    ],
+  },
 ];
 
 const SkillsSection = () => {
@@ -66,9 +78,13 @@ const SkillsSection = () => {
                     key={index}
                     className="flex flex-col items-center justify-center text-center p-4 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_#FEE715] bg-[#101820]"
                   >
-                    <i
-                      className={`${skill.iconClass} text-5xl transition-all duration-300 group-hover:scale-110 hover:text-[#A7BEAE]`}
-                    />
+                    {skill.icon ? (
+                      <skill.icon size={36} className="text-[#FEE715] mb-3" />
+                    ) : (
+                      <i
+                        className={`${skill.iconClass} text-5xl transition-all duration-300 group-hover:scale-110 hover:text-[#A7BEAE]`}
+                      />
+                    )}
                     <span className="text-sm mt-3 text-white hover:text-[#A7BEAE] transition duration-300">
                       {skill.name}
                     </span>
