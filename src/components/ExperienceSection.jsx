@@ -1,0 +1,79 @@
+import React from 'react';
+import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
+import { motion as Motion } from 'framer-motion';
+
+const experienceData = [
+    {
+        role: 'Junior Software Developer',
+        company: 'WeMakeScholars',
+        location: 'Onsite',
+        duration: 'Oct 2025 - Feb 2026',
+        responsibilities: [
+            'Recreated and optimized multiple website pages to improve UI/UX, performance, and responsiveness.',
+            'Developed and maintained dynamic web pages using HTML, CSS, JavaScript, and jQuery.',
+            'Worked with Yii2 PHP framework to implement backend features and enhance existing modules.',
+            'Integrated and consumed REST APIs for dynamic data rendering and seamless user interactions.',
+            'Managed and updated MySQL database records ensuring data accuracy and consistency.',
+            'Identified and resolved UI bugs, improving cross-browser compatibility and user experience.',
+            'Collaborated with cross-functional teams in agile sprints, contributing to code reviews and feature enhancements.',
+            'Assisted in debugging, optimizing application performance, and maintaining production-level code.'
+        ]
+    }
+];
+
+const ExperienceSection = () => {
+    return (
+        <section id="experience" className="bg-[#0b1218] text-white py-20 px-4 sm:px-6 md:px-12">
+            <div className="max-w-6xl mx-auto">
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-[#FEE715] mb-2">Experience</h2>
+                    <p className="text-white/80 max-w-2xl mx-auto">
+                        A snapshot of my professional growth, hands-on skills, and achievements in product-focused teams.
+                    </p>
+                </div>
+
+                <div className="flex flex-col items-center gap-8">
+                    {experienceData.map((item, index) => (
+                        <Motion.article
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -4, boxShadow: '0 20px 45px rgba(254,231,21,0.3)' }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="w-full max-w-xl border border-[#FEE715]/30 rounded-2xl p-6 bg-gradient-to-br from-[#101820] via-[#111e2e] to-[#122237]"
+                        >
+                            <div className="flex items-start justify-between gap-3 mb-4">
+                                <div>
+                                    <h3 className="text-2xl font-bold text-[#FEE715]">{item.role}</h3>
+                                    <p className="text-sm text-white/80">
+                                        <span className="font-medium text-white">{item.company}</span> • {item.location}
+                                    </p>
+                                </div>
+                                <span className="text-xs text-[#A7BEAE] font-semibold uppercase tracking-wider">{item.duration}</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 mb-4 text-sm text-white/80">
+                                <Briefcase size={18} className="text-[#FEE715]" />
+                                <span>Key responsibilities</span>
+                            </div>
+
+                            <ul className="space-y-2 text-white/85">
+                                {item.responsibilities.slice(0, 5).map((line, i) => (
+                                    <li key={i} className="relative pl-5 before:absolute before:left-0 before:top-1.5 before:h-2 before:w-2 before:rounded-full before:bg-[#FEE715]">
+                                        {line}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            {item.responsibilities.length > 5 && (
+                                <p className="mt-4 text-xs text-white/60">+{item.responsibilities.length - 5} more bullet points</p>
+                            )}
+                        </Motion.article>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ExperienceSection;
