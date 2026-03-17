@@ -18,7 +18,7 @@ A responsive and interactive personal portfolio website built with React, Vite, 
 
 ## Demo
 
-> The app is ready for local development and can be published with Vite hosting or Netlify / Vercel.
+![Portfolio Screenshot](./src/image/demo.png)
 
 ## Features
 
